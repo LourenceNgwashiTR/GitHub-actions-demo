@@ -1,35 +1,8 @@
-name: Compile DTMax Knowledge Base
-'on':
-  push:
-    branches:
-      - main
+name: hello-world
+'on': push
 jobs:
-  compile:
-    runs-on: windows-latest
+  my-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout tax-ca-dt-help-dtmax
-        uses: actions/checkout@v4
-        with:
-          repository: your-username/tax-ca-dt-help-dtmax
-          path: tax-ca-dt-help-dtmax
-      - name: Checkout tax-ca-dt-help-ufile
-        uses: actions/checkout@v4
-        with:
-          repository: your-username/tax-ca-dt-help-ufile
-          path: tax-ca-dt-help-ufile
-      - name: Run DTMax Batch File
-        run: |
-          set "ENGLISH_OUTPUT_PATH=D:\DTXML\KBTARGET\kb_chm_cd\dtwkbe.chm"
-          set "FRENCH_OUTPUT_PATH=D:\DTXML\KBTARGET\br_chm_cd\dtwkbf.chm"
-          tax-ca-dt-help-dtmax\BATCH\Meta Batch\DTMax_with_Guides_Local.bat
-        shell: cmd
-      - name: Upload English Compilation Result
-        uses: actions/upload-artifact@v4
-        with:
-          name: English-KB-Compilation
-          path: 'D:\DTXML\KBTARGET\kb_chm_cd\dtwkbe.chm'
-      - name: Upload French Compilation Result
-        uses: actions/upload-artifact@v4
-        with:
-          name: French-KB-Compilation
-          path: 'D:\DTXML\KBTARGET\br_chm_cd\dtwkbf.chm'
+      - name: my-step
+        run: echo "Hello World!"
