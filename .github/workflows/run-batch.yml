@@ -1,0 +1,32 @@
+name: Run Batch Script
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-batch-file:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up directories
+      run: |
+        mkdir "D:\DTXML\KBTARGET"
+        echo "Directories set up"
+
+    - name: Run Batch Script
+      run: D:\ADO\WS_GIT_REPOS\tax-ca-dt-help-dtmax\BATCH\"Meta Batch\DTMax_with_Guides_V999.bat" > "D:\DTXML\KBTARGET\output.txt"
+      shell: cmd
+
+    - name: Upload Output
+      uses: actions/upload-artifact@v2
+      with:
+        name: batch-output
+        path: D:\DTXML\KBTARGET\output.txt
