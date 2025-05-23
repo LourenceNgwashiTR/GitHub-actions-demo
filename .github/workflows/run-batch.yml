@@ -22,7 +22,7 @@ jobs:
         echo "Directories set up"
 
     - name: Run Batch Script
-      run: D:\ADO\WS_GIT_REPOS\tax-ca-dt-help-dtmax\BATCH\"Meta Batch\DTMax_with_Guides_V999.bat" > "D:\DTXML\KBTARGET\output.txt"
+      run: "D:\ADO\WS_GIT_REPOS\tax-ca-dt-help-dtmax\BATCH\Meta Batch\DTMax_with_Guides_V999.bat" > "D:\DTXML\KBTARGET\output.txt"
       shell: cmd
 
     - name: Upload Output
