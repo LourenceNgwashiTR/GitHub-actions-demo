@@ -18,15 +18,15 @@ jobs:
 
     - name: Set up directories
       run: |
-        mkdir "D:\DTXML\KBTARGET"
+        mkdir "D:\DTXML\KBTARGET\kb_chm_cd"
         echo "Directories set up"
 
     - name: Run Batch Script
-      run:  D:\ADO\WS_GIT_REPOS\tax-ca-dt-help-dtmax\BATCH\Meta Batch\DTMax_with_Guides_V999.bat > D:\DTXML\KBTARGET\output.txt 
+      run:  D:\ADO\WS_GIT_REPOS\tax-ca-dt-help-dtmax\BATCH\Meta Batch\DTMax_with_Guides_V999.bat > D:\DTXML\KBTARGET\kb_chm_cd
       shell: cmd
 
     - name: Upload Output
       uses: actions/upload-artifact@v2
       with:
         name: batch-output
-        path: D:\DTXML\KBTARGET\output.txt
+        path: D:\DTXML\KBTARGET\kb_chm_cd
